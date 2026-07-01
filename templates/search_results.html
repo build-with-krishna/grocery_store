@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container-fluid pb-5 bg-primary hero-header">
+    <div class="container">
+        <div class="row g-3 align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-1 mb-0 animated slideInLeft">Search</h1>
+            </div>
+            <div class="col-lg-6 animated slideInRight">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
+                        <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
+                        <li class="breadcrumb-item text-secondary active" aria-current="page">Search</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<div class="container-fluid py-5">
+    <div class="container">
+        <h2>Search : {{query}}</h2>
+        <hr>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="{{product.thumbnail.url}}"height="200">
+                    <div class="card-body">
+                        <h5>{{product.name}}</h5>
+                        <a href="/product/{{product.slug}}/" class="btn btn-primary">View</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>    
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,159 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>E-Commerce</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+<link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+<link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container-fluid sticky-top">
+    <div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom border-2 border-white">
+
+        <a href="/" class="navbar-brand">
+            <h1>E-Commerce</h1>
+        </a>
+
+        <button type="button"
+                class="navbar-toggler ms-auto me-0"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <div class="navbar-nav ms-auto align-items-center">
+
+                <!-- Search -->
+
+                <form action="/search/" method="get" class="d-flex me-3">
+
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        name="q"
+                        placeholder="Search Products">
+
+                    <button class="btn btn-warning">
+                        Search
+                    </button>
+
+                </form>
+
+                <!-- Home sabko dikhna chahiye -->
+
+                <a href="/"
+                   class="nav-item nav-link {% if request.path == '/' %}active{% endif %}">
+                    Home
+                </a>
+
+                {% if user.is_authenticated %}
+
+                    {% if user.is_superuser %}
+
+                        <a href="/admin/" class="nav-item nav-link">
+                            Admin Panel
+                        </a>
+
+                    {% elif user.role == 'vendor' %}
+
+                        <a href="/dashboard/" class="nav-item nav-link">
+                            Dashboard
+                        </a>
+
+                        <a href="/products/" class="nav-item nav-link">
+                            Products
+                        </a>
+                        
+
+                        <a href="/dashboard/sales-report/" class="nav-item nav-link">
+                            Sales Report
+                        </a>
+
+                        <a href="/accounts/profile/" class="nav-item nav-link">
+                            Profile
+                        </a>
+
+                    {% else %}
+
+                        <a href="/wishlist/" class="nav-item nav-link">
+                            Wishlist
+                        </a>
+
+                        <a href="/cart/" class="nav-item nav-link">
+                            Cart
+                        </a>
+
+                        <a href="/orders/my-orders/" class="nav-item nav-link">
+                            My Orders
+                        </a>
+
+                        <a href="/accounts/profile/" class="nav-item nav-link">
+                            Profile
+                        </a>
+
+                    {% endif %}
+
+                    <a href="/accounts/logout/"
+                       class="btn btn-danger ms-2">
+
+                        Logout
+
+                    </a>
+
+                {% else %}
+
+                    <a href="/accounts/login/"
+                       class="nav-item nav-link">
+
+                        Login
+
+                    </a>
+
+                    <a href="/accounts/register/"
+                       class="btn btn-primary ms-2">
+
+                        Register
+
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </nav>
+
+</div>
+
+</div>

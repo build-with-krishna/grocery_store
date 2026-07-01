@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Vendor Dashboard</h2>
+
+<div class="row">
+
+<div class="col-md-3">
+
+<div class="card text-center">
+
+<div class="card-body">
+
+<h5>Total Products</h5>
+
+<h2>
+
+{{ total_products }}
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center">
+
+<div class="card-body">
+
+<h5>Total Orders</h5>
+
+<h2>
+
+{{ total_orders }}
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center">
+
+<div class="card-body">
+
+<h5>Revenue</h5>
+
+<h2>
+
+₹{{ revenue }}
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="card text-center">
+
+<div class="card-body">
+
+<h5>Pending Orders</h5>
+
+<h2>
+
+{{ pending_orders }}
+
+</h2>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr>
+
+<h3>
+
+Latest Orders
+
+</h3>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>Product</th>
+<th>Qty</th>
+<th>Total</th>
+<th>Status</th>
+
+</tr>
+
+{% for item in latest_orders %}
+
+<tr>
+
+<td>
+
+{{ item.product.name }}
+
+</td>
+
+<td>
+
+{{ item.quantity }}
+
+</td>
+
+<td>
+
+₹{{ item.subtotal }}
+
+</td>
+
+<td>
+
+{{ item.order.status }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<a
+href="/dashboard/sales-report/"
+class="btn btn-primary">
+
+Sales Report
+
+</a>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid pb-5 hero-header bg-light">
+    <div class="container py-5">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-primary">Register</button>
+        </form>
+        <a href="/accounts/login/">Login</a>
+    </div>
+</div>
+
+{% endblock %}

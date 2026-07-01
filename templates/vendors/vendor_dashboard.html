@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Vendor Dashboard</h2>
+
+<hr>
+
+<h4>{{ vendor.shop_name }}</h4>
+
+<p>GST : {{ vendor.gst_number }}</p>
+
+<p>PAN : {{ vendor.pan_number }}</p>
+
+<p>
+
+Status :
+
+{% if vendor.is_approved %}
+
+<span class="text-success">
+Approved
+</span>
+
+{% else %}
+
+<span class="text-danger">
+Pending Approval
+</span>
+
+{% endif %}
+
+</p>
+
+{% endblock %}

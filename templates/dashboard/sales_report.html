@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Sales Report</h2>
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>Product</th>
+<th>Quantity</th>
+<th>Total</th>
+
+</tr>
+
+{% for item in items %}
+
+<tr>
+
+<td>
+
+{{ item.product.name }}
+
+</td>
+
+<td>
+
+{{ item.quantity }}
+
+</td>
+
+<td>
+
+₹{{ item.subtotal }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<hr>
+
+<h3>
+
+Total Sales :
+
+₹{{ total_sales }}
+
+</h3>
+
+{% endblock %}

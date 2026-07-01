@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Checkout</h2>
+
+<form method="post">
+
+{% csrf_token %}
+
+<input class="form-control mb-2"
+name="full_name"
+placeholder="Full Name">
+
+<input class="form-control mb-2"
+name="mobile"
+placeholder="Mobile">
+
+<textarea class="form-control mb-2"
+name="address"
+placeholder="Address"></textarea>
+
+<input class="form-control mb-2"
+name="city"
+placeholder="City">
+
+<input class="form-control mb-2"
+name="state"
+placeholder="State">
+
+<input class="form-control mb-3"
+name="pincode"
+placeholder="Pincode">
+
+<h5>Total : ₹{{total}}</h5>
+
+<h5>
+
+Discount :
+
+₹{{ discount }}
+
+</h5>
+
+<h3>
+Final Amount :
+₹{{ final_total }}
+</h3>
+
+<button class="btn btn-success">
+
+Place Order
+
+</button>
+
+</form>
+
+<form method="post" action="/coupons/apply/">
+
+{% csrf_token %}
+
+<input
+class="form-control"
+name="coupon_code"
+placeholder="Coupon Code">
+
+<button class="btn btn-warning mt-2">
+
+Apply Coupon
+
+</button>
+
+</form>
+
+<hr>
+
+{% endblock %}

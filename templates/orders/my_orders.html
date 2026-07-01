@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Orders</h2>
+
+<table class="table">
+
+<tr>
+    <th>Order No.</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th></th>
+</tr>
+
+{% for order in orders %}
+
+<tr>
+
+<td>
+{{order.order_number}}
+</td>
+
+<td>
+₹{{order.total_amount}}
+</td>
+
+<td>
+{{order.status}}
+</td>
+
+<td>
+
+<a
+href="/orders/detail/{{order.id}}/"
+class="btn btn-primary">
+
+View
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

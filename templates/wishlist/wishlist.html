@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Wishlist</h2>
+
+<table class="table table-bordered">
+
+<tr>
+    <th>Image</th>
+    <th>Product</th>
+    <th>Price</th>
+    <th>Action</th>
+</tr>
+
+{% for item in items %}
+
+<tr>
+
+<td>
+
+<img
+src="{{item.product.thumbnail.url}}"
+width="80">
+
+</td>
+
+<td>
+
+{{item.product.name}}
+
+</td>
+
+<td>
+
+₹{{item.product.discount_price|default:item.product.price}}
+
+</td>
+
+<td>
+
+<a
+href="/wishlist/move-to-cart/{{item.id}}/"
+class="btn btn-success">
+
+Move To Cart
+
+</a>
+
+<a
+href="/wishlist/remove/{{item.id}}/"
+class="btn btn-danger">
+
+Remove
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

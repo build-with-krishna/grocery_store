@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Select Payment Method</h2>
+
+<form method="post">
+
+{% csrf_token %}
+
+<input
+type="radio"
+name="payment_method"
+value="COD"
+required>
+
+Cash On Delivery
+
+<br><br>
+
+<input
+type="radio"
+name="payment_method"
+value="RAZORPAY">
+
+Razorpay
+
+<br><br>
+
+<button class="btn btn-success">
+
+Continue
+
+</button>
+
+</form>
+
+{% endblock %}

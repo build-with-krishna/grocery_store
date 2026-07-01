@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>My Products</h2>
+
+<a href="/products/add/" class="btn btn-primary">
+    Add Product
+</a>
+
+<hr>
+
+<table class="table table-bordered">
+
+<tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Stock</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for product in products %}
+
+<tr>
+
+<td>
+
+<img
+src="{{ product.thumbnail.url }}"
+width="80"
+>
+
+</td>
+
+<td>
+{{ product.name }}
+</td>
+
+<td>
+₹{{ product.price }}
+</td>
+
+<td>
+{{ product.stock }}
+</td>
+
+<td>
+
+{% if product.is_approved %}
+Approved
+{% else %}
+Pending
+{% endif %}
+
+</td>
+
+<td>
+
+<a
+href="/products/edit/{{product.id}}/"
+class="btn btn-warning"
+>
+Edit
+</a>
+
+<a
+href="/products/delete/{{product.id}}/"
+class="btn btn-danger"
+>
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-fluid pb-5 bg-primary hero-header">
+    <div class="container">
+        <div class="row g-3 align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-1 mb-0 animated slideInLeft">Search</h1>
+            </div>
+            <div class="col-lg-6 animated slideInRight">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center justify-content-lg-end mb-0">
+                        <li class="breadcrumb-item"><a class="text-primary" href="#">Home</a></li>
+                        <li class="breadcrumb-item text-secondary active" aria-current="page">Search</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="{{product.thumbnail.url}}" width="100%">
+            </div>
+            <div class="col-md-7">
+                <h2>{{product.name}}</h2>
+                <hr>
+                <p>{{product.description}}</p>
+                <h3>₹ {% if product.discount_price %}
+                    {{product.discount_price}}
+                    {% else %}
+                    {{product.price}}
+                    {% endif %}
+                </h3>
+                <h4>Average Rating : {{ avg_rating }}/5 </h4>
+                <h5>Total Reviews :{{ reviews.count }}</h5>
+                <hr>
+                <p>Stock :{{product.stock}}</p>
+                <a href="/cart/add/{{product.id}}/" class="btn btn-warning">Add To Cart</a>
+                <a href="/wishlist/add/{{product.id}}/" class="btn btn-danger">❤ Add To Wishlist</a>
+            </div>
+        </div>
+    </div>
+</div>            
+
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <h3>Write Review</h3>
+        <form method="post" action="/reviews/add/{{product.id}}/">
+        {% csrf_token %}
+            <select
+            name="rating"
+            class="form-control">
+
+            <option value="5">5 Star</option>
+            <option value="4">4 Star</option>
+            <option value="3">3 Star</option>
+            <option value="2">2 Star</option>
+            <option value="1">1 Star</option>
+
+            </select>
+            <br>
+            <textarea name="comment" class="form-control"></textarea>
+            <br>
+
+            <button class="btn btn-success">Submit Review</button>
+        </form>
+        <hr>
+        <h3>Customer Reviews</h3>
+        {% for review in reviews %}
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5>{{ review.user.username }}</h5>
+                <p>Rating : {{ review.rating }}/5</p>
+                <p>{{ review.comment }}</p>
+                {% if request.user == review.user %}
+                <a href="/reviews/delete/{{review.id}}/" class="btn btn-danger">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

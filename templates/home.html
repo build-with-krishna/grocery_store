@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Start -->
+<div class="container-fluid pb-5 hero-header bg-light mb-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-1 mb-4 animated slideInRight">We Make Your <span class="text-primary">Home</span>
+                    Better</h1>
+                <h5 class="d-inline-block border border-2 border-white py-3 px-5 mb-0 animated slideInRight">
+                    An Award Winning Studio Since 1990</h5>
+            </div>
+            <div class="col-lg-6">
+                <div class="owl-carousel header-carousel animated fadeIn">
+                    <img class="img-fluid" src="/static/img/hero-slider-1.jpg" alt="">
+                    <img class="img-fluid" src="/static/img/hero-slider-2.jpg" alt="">
+                    <img class="img-fluid" src="/static/img/hero-slider-3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+
+<!-- Feature Start -->
+<div class="container-fluid pb-5">
+    <div class="container">
+        <div class="text-center wow fadeIn" data-wow-delay="0.1s">
+            <h1 class="mb-5">Latest <span class="text-uppercase text-primary bg-light px-2">Products</span></h1>
+        </div>
+        <div class="row g-5 align-items-center text-center">
+            {% for product in products %}
+            <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+                <div class="card">
+                    <img src="{{product.thumbnail.url}}" height="220" class="card-img-top">
+                    <div class="card-body">
+                        <h5>{{product.name}}</h5>
+                        {% if product.discount_price %}
+                        <h4 class="text-danger">₹{{product.discount_price}}</h4>
+                        <del>₹{{product.price}}</del>
+                        {% else %}
+                        <h4>₹{{product.price}}</h4>
+                        {% endif %}
+                        <a href="/product/{{product.slug}}/" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>        
+
+{% endblock %}

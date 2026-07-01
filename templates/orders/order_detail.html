@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>
+
+Order : {{order.order_number}}
+
+</h2>
+
+<hr>
+
+<table class="table">
+
+<tr>
+
+<th>Product</th>
+<th>Qty</th>
+<th>Price</th>
+<th>Total</th>
+
+</tr>
+
+{% for item in order.items.all %}
+
+<tr>
+
+<td>{{item.product.name}}</td>
+
+<td>{{item.quantity}}</td>
+
+<td>₹{{item.price}}</td>
+
+<td>₹{{item.subtotal}}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<h3>
+
+Status : {{order.status}}
+
+</h3>
+
+{% endblock %}
