@@ -1,65 +1,86 @@
-User Roles
-Customer
-Browse Products
-Place Orders
-Wishlist
-Payment
-Profile
-Vendor
-Manage Store
-Add Products
-Manage Inventory
-Receive Orders
-Sales Report
-Admin
-Manage Entire Platform
-Approve Vendors
-Manage Categories
-Reports
-Settings
-Future Enhancements
-Razorpay Integration
-Stripe Integration
-COD
-GST Invoice
-Invoice PDF
-Email Notifications
-SMS Notifications
-Product Recommendations
-Coupons & Discounts
-Multi-language Support
-Dark Mode
-REST API
-Mobile App Integration
-Screenshots
-Home Page
-Vendor Dashboard
-Product Listing
-Product Details
-Shopping Cart
-Checkout
-Customer Dashboard
-Admin Dashboard
-Requirements
-Python >= 3.11
-Django >= 5.x
-Bootstrap 5
-Pillow
-SQLite / MySQL
-License
+# Multi-Vendor Grocery E-Commerce System
 
-This project is released under the MIT License.
+## User Roles
 
-Author
+### Customer
 
-Krishna Mahor
+- Browse Products
+- Place Orders
+- Wishlist
+- Payment
+- Profile
 
-Project: Multi-Vendor Grocery E-Commerce System
+### Vendor
 
-Framework: Django
+- Manage Store
+- Add Products
+- Manage Inventory
+- Receive Orders
+- Sales Report
 
-Language: Python
+###  Admin
 
-Frontend: HTML, CSS, Bootstrap 5, JavaScript
+- Manage Entire Platform
+- Approve Vendors
+- Manage Categories
+- Reports
+- Settings
 
-Database: postgres
+---
+
+## Future Enhancements
+
+- Razorpay Integration
+- Stripe Integration
+- Cash on Delivery (COD)
+- GST Invoice
+- PDF Invoice
+- Email Notifications
+- SMS Notifications
+- Product Recommendations
+- Coupons & Discounts
+- Multi-language Support
+- Dark Mode
+- REST API
+- Mobile App Integration
+
+---
+
+## Screenshots
+
+- Home Page
+- Vendor Dashboard
+- Product Listing
+- Product Details
+- Shopping Cart
+- Checkout
+- Customer Dashboard
+- Admin Dashboard
+
+---
+
+## Requirements
+
+- Python 3.11+
+- Django 5.x
+- Bootstrap 5
+- Pillow
+- PostgreSQL
+
+---
+
+## License
+
+This project is released under the **MIT License**.
+
+---
+
+## Author
+
+**Krishna Mahor**
+
+- **Project:** Multi-Vendor Grocery E-Commerce System
+- **Framework:** Django
+- **Language:** Python
+- **Frontend:** HTML, CSS, Bootstrap 5, JavaScript
+- **Database:** PostgreSQL
