@@ -14,9 +14,9 @@
             </div>
             <div class="col-lg-6">
                 <div class="owl-carousel header-carousel animated fadeIn">
-                    <img class="img-fluid" src="/static/img/hero-slider-1.jpg" alt="">
-                    <img class="img-fluid" src="/static/img/hero-slider-2.jpg" alt="">
-                    <img class="img-fluid" src="/static/img/hero-slider-3.jpg" alt="">
+                    <img class="img-fluid" src="/static/img/grocery2.jpg" alt="">
+                    <img class="img-fluid" src="/static/img/grocery1.jpg" alt="">
+                    <img class="img-fluid" src="/static/img/grocery2.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
             {% for product in products %}
             <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
                 <div class="card">
-                    <img src="{{product.thumbnail.url}}" height="220" class="card-img-top">
+                    <img src="{{product.thumbnail.url}}" height="100%" class="card-img-top">
                     <div class="card-body">
                         <h5>{{product.name}}</h5>
                         {% if product.discount_price %}
