@@ -170,6 +170,4 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_URL = '/accounts/login/'
 
 
-RAZORPAY_KEY_ID = "rzp_live_RS9r0S99o21cgi"
 
-RAZORPAY_KEY_SECRET = "swqgcR4PMyFQELnC8Sp9t27u"
