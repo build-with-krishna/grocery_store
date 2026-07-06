@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-_!@0rtrclh$-!#4zg&ace-b49k*&k_51u&=4u^)$uz=c8(#-op
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "0.0.0.0",
+]
 
 
 # Application definition
@@ -108,7 +112,7 @@ DATABASES = {
         'NAME': 'flipkart_db',
         'USER': 'postgres',
         'PASSWORD': 'test@123',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
